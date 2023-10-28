@@ -37,14 +37,20 @@ pagehelper:
 litemall:
   # 开发者应该设置成自己的wx相关信息
   wx:
-    app-id: wxa5b486c6b918ecfb
-    app-secret: e04004829d4c383b4db7769d88dfbca1
-    mch-id: 111111
-    mch-key: xxxxxx
-    notify-url: http://122.51.199.160:18080/wx/order/pay-notify
+    app-id: wxa5a693cf1358d9f2
+    app-secret: xxx
+    mch-id: 1522552191
+    mch-key: xxx
+    notify-url: http://115.159.97.58:18080/wx/order/pay-notify
     # 商户证书文件路径
     # 请参考“商户证书”一节 https://pay.weixin.qq.com/wiki/doc/api/wxa/wxa_api.php?chapter=4_3
-    key-path: xxxxx
+    key-path: wechatpay/apiclient_cert.p12
+    open:
+      componentAppId: wx4f5ad152d4f93f38
+      componentSecret: xxx
+      componentToken: xxx
+      componentAesKey: xxx
+      redirectUri: https://mall.51bian.cloud/#/auth
 
   #通知相关配置
   notify:

@@ -524,7 +524,7 @@ spring:
 ```bash
 litemall:
   wx:
-    app-id: wxa5b486c6b918ecfb
+    app-id: wxa5a693cf1358d9f2
     app-secret: e04004829d4c383b4db7769d88dfbca1
 ```
 
@@ -1182,7 +1182,7 @@ http://www.example.com
     ```
     litemall:
         wx:
-            app-id: wxa5b486c6b918ecfb
+            app-id: wxa5a693cf1358d9f2
             app-secret: e04004829d4c383b4db7769d88dfbca1
             mch-id: 111111
             mch-key: xxxxxx
