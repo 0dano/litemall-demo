@@ -248,7 +248,7 @@ list是对象数组，total是总的数量。
     
 3. 请求受保护API则，则采用自定义头部携带此token
 
-        GET http://localhost:8080/wx/address/list
+        GET http://localhost:18080/wx/address/list
         X-Litemall-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0aGlzIGlzIGxpdGVtYWxsIHRva2VuIiwiYXVkIjoiTUlOSUFQUCIsImlzcyI6IkxJVEVNQUxMIiwiZXhwIjoxNTU3MzM2ODU0LCJ1c2VySWQiOjIsImlhdCI6MTU1NzMyOTY1NH0.JY1-cqOnmi-CVjFohZMqK2iAdAH4O6CKj0Cqd5tMF3M
 
 #### 1.4.3 管理后台自定义Header
@@ -280,7 +280,7 @@ list是对象数组，total是总的数量。
     
 3. 请求受保护API时，则采用自定义头部携带此token
 
-        GET http://localhost:8080/wx/address/list
+        GET http://localhost:18080/wx/address/list
         X-Litemall-Admin-Token: f2dbcae8-6e25-4f8e-bc58-aa81d512c952
 
 ### 1.5 版本控制
@@ -439,12 +439,12 @@ API应该存在版本控制，以保证兼容性。
 造成代码不是很简洁。特别是具备代码属性的注解和Swagger文档注解混杂在一起，可能不是很好。
 
 当然，本项目也简单地配置了Swagger(见`WxSwagger2Configuration`和`AdminSwagger2Configuration`)，
-* 在线Swagger文档链接：http://122.51.199.160:8080/swagger-ui.html
-* 本地Swagger文档链接：http://localhost:8080/swagger-ui.html
+* 在线Swagger文档链接：http://122.51.199.160:18080/swagger-ui.html
+* 本地Swagger文档链接：http://localhost:18080/swagger-ui.html
 
 此外，也使用了swagger-bootstrap-ui对Swagger进一步增强了使用效果。
-* 在线swagger-bootstrap-ui文档链接：http://122.51.199.160:8080/doc.html
-* 本地swagger-bootstrap-ui文档链接：http://localhost:8080/doc.html
+* 在线swagger-bootstrap-ui文档链接：http://122.51.199.160:18080/doc.html
+* 本地swagger-bootstrap-ui文档链接：http://localhost:18080/doc.html
 
 当然正如上文讨论，本项目不是很接受Swagger的理念，所以后端没有使用Swagger的相关文档注解，
 这也导致了Swagger接口文档的不具可读性。如果开发者需要，可以自行在后端补充Swagger注解。

@@ -63,9 +63,9 @@ docker-compose配置脚本，运行docker-compose命令会
 
 3. 测试是否部署成功(xxx.xxx.xxx.xxx是云服务器IP）：
     ```
-    http://xxx.xxx.xxx.xxx:8080/wx/index/index
-    http://xxx.xxx.xxx.xxx:8080/admin/index/index
-    http://xxx.xxx.xxx.xxx:8080/#/login
+    http://xxx.xxx.xxx.xxx:18080/wx/index/index
+    http://xxx.xxx.xxx.xxx:18080/admin/index/index
+    http://xxx.xxx.xxx.xxx:18080/#/login
     ```
 
 ### 项目辅助脚本

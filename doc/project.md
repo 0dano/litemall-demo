@@ -282,8 +282,8 @@ Spring Boot技术栈参考以下文档或者项目：
 如图所示，当前开发阶段的方案：
 
 * MySQL数据访问地址`jdbc:mysql://localhost:3306/litemall`
-* litemall-wx-api后端服务地址`http://localhost:8080/wx`，数据则来自MySQL
-* litemall-admin-api后端服务地址`http://localhost:8080/admin`,数据则来自MySQL
+* litemall-wx-api后端服务地址`http://localhost:18080/wx`，数据则来自MySQL
+* litemall-admin-api后端服务地址`http://localhost:18080/admin`,数据则来自MySQL
 * litemall-admin前端访问地址`http://localhost:9527`, 数据来自litemall-admin-api
 * litemall-wx没有前端访问地址，而是直接在微信小程序工具上编译测试开发，最终会部署到微信官方平台（即不需要自己部署web服务器），而数据则来自litemall-wx-api
 
@@ -367,8 +367,8 @@ flush privilege
    
    打开浏览器，输入
     ```
-    http://localhost:8080/wx/index/index
-    http://localhost:8080/admin/index/index
+    http://localhost:18080/wx/index/index
+    http://localhost:18080/admin/index/index
     ```
     如果出现JSON数据，则litemall-all模块运行正常。
     
@@ -434,11 +434,11 @@ flush privilege
 
     ```
     // 本机开发时使用
-     var WxApiRoot = 'http://localhost:8080/wx/';
+     var WxApiRoot = 'http://localhost:18080/wx/';
     // 局域网测试使用
-    // var WxApiRoot = 'http://192.168.0.101:8080/wx/';
+    // var WxApiRoot = 'http://192.168.0.101:18080/wx/';
     // 云平台部署时使用
-    // var WxApiRoot = 'http://122.51.199.160:8080/wx/';
+    // var WxApiRoot = 'http://122.51.199.160:18080/wx/';
     // 云平台上线时使用
     // var WxApiRoot = 'https://www.menethil.com.cn/wx/';
 
@@ -714,7 +714,7 @@ litemall:
     local:
       storagePath: storage
       # 这个地方应该是wx模块的WxStorageController的fetch方法对应的地址
-      address: http://localhost:8080/wx/storage/fetch/
+      address: http://localhost:18080/wx/storage/fetch/
 ```
 
 配置方式：
@@ -842,10 +842,10 @@ litemall:
 
     ![](./pics/project/security-group.png)
 
-    目前允许的端口：8080，80，443，22，3306
+    目前允许的端口：18080，80，443，22，3306
     
     注意：
-    这里其实只需要8080端口，允许其他端口只是方便开发阶段的测试和调试。
+    这里其实只需要18080端口，允许其他端口只是方便开发阶段的测试和调试。
     特别是3306端口，作为MySQL的远程访问端口，请在上线阶段关闭。
     
 4. 设置SSH密钥（可选）
@@ -948,15 +948,15 @@ sudo mysql_secure_installation
     ```
 4. 测试是否部署成功(xxx.xxx.xxx.xxx是云服务器IP）：
     ```
-    http://xxx.xxx.xxx.xxx:8080/wx/index/index
-    http://xxx.xxx.xxx.xxx:8080/admin/index/index
-    http://xxx.xxx.xxx.xxx:8080/#/login
+    http://xxx.xxx.xxx.xxx:18080/wx/index/index
+    http://xxx.xxx.xxx.xxx:18080/admin/index/index
+    http://xxx.xxx.xxx.xxx:18080/#/login
     ```
 
 注意：
 > 开发者访问以上三个地址都能成功，但是管理后台点击登录时会报错网络连接不成功。
 > 这里很可能是开发者litemall-admin模块的`config/dep.env.js`或者`condig/prod.env.js`
-> 没有设置正确的管理后台后端地址，例如这里的`http://xxx.xxx.xxx.xxx:8080/admin`
+> 没有设置正确的管理后台后端地址，例如这里的`http://xxx.xxx.xxx.xxx:18080/admin`
 
 #### 1.5.1.6 deploy部署脚本
 
@@ -1122,7 +1122,7 @@ https://www.example.com
 ```
 server {
     location / {
-        proxy_pass  http://localhost:8080;
+        proxy_pass  http://localhost:18080;
         proxy_set_header    Host    $host;
         proxy_set_header    X-Real-IP   $remote_addr;
         proxy_set_header    X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -1234,7 +1234,7 @@ litemall-admin编译得到的前端文件在第一次加载时相当耗时，这
 原来后端服务（包括小商城的后端服务和管理后台的后端服务）可以通过域名或者IP直接对外服务，而这里采用nginx反向代理后可以
 通过80端口访问后端服务。因此，会存在这样一种结果：
 * 用户可以https协议的80端口访问后端服务（nginx反向代理）
-* 用户也可以通过http协议的8080访问后端服务（spring boot）
+* 用户也可以通过http协议的18080访问后端服务（spring boot）
 由于http不是安全的，这里可能存在安全隐患
 
 而如果取消后端服务的对外访问，这样可以保证用户只能采用安全的https协议访问后端服务。
